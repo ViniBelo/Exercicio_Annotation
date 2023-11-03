@@ -7,5 +7,5 @@ import java.util.UUID;
 
 public interface IUserDao {
     @Transaction
-    public UUID save(User user);
+    public UUID save(String name);
 }

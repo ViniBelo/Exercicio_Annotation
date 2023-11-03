@@ -15,8 +15,7 @@ public class CommonFactory implements UserFactory {
     @Override
     @Transaction
     public UUID createUser(String name) {
-        User user = new User(UUID.randomUUID(), name, UserRoles.COMMON);
         IUserDao userDao = new UserCommonDao();
-        return userDao.save(user);
+        return userDao.save(name);
     }
 }

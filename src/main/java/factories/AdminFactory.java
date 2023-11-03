@@ -15,8 +15,7 @@ public class AdminFactory implements UserFactory {
     @Override
     @Transaction
     public UUID createUser(String name) {
-        User user = new User(UUID.randomUUID(), name, UserRoles.ADMINISTRATOR);
         IUserDao userDao = new UserAdministratorDao();
-        return userDao.save(user);
+        return userDao.save(name);
     }
 }
