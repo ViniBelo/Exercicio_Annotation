@@ -2,7 +2,7 @@ package factories;
 
 import Annotations.Transaction;
 import dao.IUserDao;
-import dao.UserDao;
+import dao.UserCommonDao;
 import domain.User;
 import factories.interfaces.UserFactory;
 import utils.UserRoles;
@@ -16,7 +16,7 @@ public class CommonFactory implements UserFactory {
     @Transaction
     public UUID createUser(String name) {
         User user = new User(UUID.randomUUID(), name, UserRoles.COMMON);
-        IUserDao userDao = new UserDao();
+        IUserDao userDao = new UserCommonDao();
         return userDao.save(user);
     }
 }

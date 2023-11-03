@@ -4,10 +4,10 @@ import domain.User;
 
 import java.util.UUID;
 
-public class UserDao implements IUserDao{
+public class UserCommonDao implements IUserDao{
     @Override
     public UUID save(User user) {
-        System.out.println("Saved user");
+        System.out.println("Saving common user");
         return user.getId();
     }
 }

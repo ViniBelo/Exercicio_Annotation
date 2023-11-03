@@ -2,7 +2,7 @@ package factories;
 
 import Annotations.Transaction;
 import dao.IUserDao;
-import dao.UserDao;
+import dao.UserAdministratorDao;
 import domain.User;
 import factories.interfaces.UserFactory;
 import utils.UserRoles;
@@ -16,7 +16,7 @@ public class AdminFactory implements UserFactory {
     @Transaction
     public UUID createUser(String name) {
         User user = new User(UUID.randomUUID(), name, UserRoles.ADMINISTRATOR);
-        IUserDao userDao = new UserDao();
+        IUserDao userDao = new UserAdministratorDao();
         return userDao.save(user);
     }
 }
