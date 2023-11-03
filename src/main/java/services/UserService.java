@@ -1,20 +1,17 @@
 package services;
 
-import Annotations.Transaction;
+import factories.FactoryProvider;
+import factories.interfaces.UserFactory;
+import utils.ProxyOptions;
+import utils.UserRoles;
+
+import java.util.UUID;
 
 public class UserService {
-    public UserService() { }
+    UserFactory userFactory;
 
-    public int exampleMethod() {
-        return 0;
-    }
-
-    @Transaction
-    public String findUser(int value) {
-        if (value == 0) {
-            return "sucesso";
-        } else {
-            return "erro";
-        }
+    public UUID create(String name, UserRoles role, ProxyOptions proxy) {
+        userFactory = FactoryProvider.getFactory(proxy, role);
+        return userFactory.createUser(name);
     }
 }
